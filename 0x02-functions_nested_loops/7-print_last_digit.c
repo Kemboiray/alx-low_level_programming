@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * print_last_digit - return value of last digit
  * @n: int type variable passed from calling function
