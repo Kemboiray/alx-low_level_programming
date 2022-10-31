@@ -23,6 +23,7 @@ void print_to_98(int n)
 			n--;
 		}
 	}
-	printf(98);
+	putchar('9');
+	putchar('8');
 	putchar(10);
 }
