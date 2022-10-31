@@ -19,8 +19,6 @@ int main(void)
 		{
 			putchar(c);
 		}
-		else
-			putchar(0);
 		c++;
 	}
 	return (0);
