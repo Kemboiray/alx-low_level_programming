@@ -4,7 +4,7 @@
  * @b: integer value added to integer variable 'a'
  * Return: result of addition
  */
-int add(a, b)
+int add(int a, int b)
 {
 	int c;
 
