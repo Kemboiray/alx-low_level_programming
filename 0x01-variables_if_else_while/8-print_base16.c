@@ -23,6 +23,5 @@ int main(void)
 			putchar(0);
 		c++;
 	}
-	putchar(10);
 	return (0);
 }
