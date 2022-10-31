@@ -1,11 +1,17 @@
 #include "main.h"
 
 /**
- * main - call print_alphabet
- * Return: 0 (success)
+ * print_alphabet - prints the alphabet, in lowercase, followed by a new line
+ * Return: void (success)
  */
-int main(void)
+void print_alphabet(void)
 {
-	print_alphabet();
-	return (0);
+	char c;
+
+	c = 97;
+	while (c < 123)
+	{
+		_putchar(c);
+		c++;
+	}
 }
