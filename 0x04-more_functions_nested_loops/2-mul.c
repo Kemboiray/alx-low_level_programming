@@ -2,7 +2,8 @@
 
 /**
  * mul - multiply 2 integers
- * @a, @b: integer variables being multiplied
+ * @a: integer variabke
+ * @b: another integer variabke
  * Return: multiple (success)
  */
 
