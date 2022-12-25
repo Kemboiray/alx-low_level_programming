@@ -1,12 +1,12 @@
-#0x06. C - More pointers, arrays and strings
-##Objectives
+# 0x06. C - More pointers, arrays and strings
+## Objectives
 To understand:
 1. Pointers and how to use them
 2. Arrays and how to use them
 3. Differences between pointers and arrays
 4. How to use and manipulate files
 
-##Tasks
+## Tasks
 0. Write a function that concatenates two strings.
 	* Prototype: char *_strcat(char *dest, char *src);
 	* This function appends the src string to the dest string, overwriting the
