@@ -9,19 +9,13 @@
  */
 void reverse_array(int *a, int n)
 {
-	int i, j/*, k*/;
-	int *b = a;
+	int b[n];
+	int i, j;
 
-	for (i = 0; 2*i < n; i++)
+	for (i = n - 1, j = 0; i >= 0; i--, j++)
 	{
-		j = i + 1;
-		a[i] = a[n - j];
+		b[j] = a[i];
 	}
-	printf("i = %d, j = %d\n", i, j);
-	for( ; i < n; i++)
-	{
-		j = i + 1;
-		a[i] = b[n - j];
-	}
-	printf("i = %d, j = %d\n", i, j);
+	for (i = 0; i < n; i++)
+		a[i] = b[i];
 }
