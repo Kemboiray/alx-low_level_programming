@@ -4,7 +4,7 @@
  * cap_string - capitalizes all words of a string
  * @s: ponter to string to be manipulated
  *
- * Return: str.
+ * Return: s.
  */
 char *cap_string(char *s)
 {
@@ -12,7 +12,7 @@ char *cap_string(char *s)
 
 	if (s[0] > 96 && s[0] < 123)
 		s[0] -= 32;
-	for (i = 1; str[i]; i++)
+	for (i = 1; s[i]; i++)
 	{
 		j = i + 1;
 		if ((s[i] == 32 || s[i] == 9 || s[i] == 11 || s[i] == 10 ||
@@ -29,5 +29,5 @@ char *cap_string(char *s)
 				s[j] -= 32;
 		}
 	}
+	return (s);
 }
-			
