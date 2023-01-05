@@ -17,16 +17,3 @@ int _pow_recursion(int x, int y)
 		return (x);
 	return (x * _pow_recursion(x, y - 1));
 }
-
-int main(void)
-{
-	int x, y;
-
-	printf("Enter base:\n");
-	scanf("%d", &x);
-	printf("Enter exponent:\n");
-	scanf("%d", &y);
-	printf("Function returned %d\n", _pow_recursion(x, y));
-	return (0);
-}
-
