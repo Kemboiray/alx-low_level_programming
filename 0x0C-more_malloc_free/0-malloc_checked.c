@@ -8,9 +8,15 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	if (malloc(b) == NULL)
+	void *p;
+
+	p = malloc(b);
+	if (p == NULL)
+	{
+		free(p);
 		exit(98);
+	}
 	else
-		return (malloc(b));
+		return (p);
 }
 
