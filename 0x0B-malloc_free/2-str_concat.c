@@ -58,6 +58,14 @@ char *str_concat(char *s1, char *s2)
 		return (p);
 	}
 	if (s1 == NULL && s2 == NULL)
-		return (NULL);
-	return (NULL);
+	{
+		p = malloc(1 * sizeof(char));
+		if (p == NULL)
+		{
+			free(p);
+			return (NULL);
+		}
+		p[0] = 0;
+	}
+	return (p);
 }
