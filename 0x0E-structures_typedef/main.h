@@ -59,6 +59,6 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 int *array_range(int min, int max);
 
 /*0x0E-structures_typedef*/
-void init_dog(struct dog *d, char *name, float age, char *owner);
+/*void init_dog(struct dog *d, char *name, float age, char *owner);*/
 
 #endif /* MAIN_H */
