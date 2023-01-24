@@ -20,13 +20,13 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i;
 
-#if 0
-	if (strlen(s) != 1)
-	{
-		printf("Error\n");
-		exit(99);
-	}
-#endif
+	/*
+	*if (strlen(s) != 1)
+	*{
+	*	printf("Error\n");
+	*	exit(99);
+	*}
+	*/
 	while (i < 5 && strlen(s) == 1)
 	{
 		if (*s == *(ops[i]).op)
