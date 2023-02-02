@@ -19,7 +19,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (str_temp == NULL)
 	{
-		free((void *)str);
+		/*free((void *)str);*/
 		return (NULL);
 	}
 
@@ -27,8 +27,8 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (newnode == NULL)
 	{
-		free((void *)str);
-		free(newnode);
+		/*free((void *)str);*/
+		/*free(newnode);*/
 		return (NULL);
 	}
 
