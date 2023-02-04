@@ -1,4 +1,5 @@
 #include "lists.h"
+#include "1-listint_len.c"
 #include "2-add_nodeint.c"
 #include "7-get_nodeint.c"
 /**
@@ -13,7 +14,10 @@
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *node, *newnode;
+	size_t count = listint_len(*head);
 
+	if ((idx >= count) || (idx < 0))
+		return (NULL);
 	if (idx == 0)
 	{
 		newnode = add_nodeint(head, (const int)n);
