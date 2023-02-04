@@ -13,9 +13,14 @@
 */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *node, *newnode;
-	size_t count = listint_len(*head);
+	listint_t *node, *newnode, *temp;
+	size_t count;
 
+	if (head == NULL)
+		return (NULL);
+
+	temp = *head;
+	count = listint_len(temp);
 	if (idx >= count)
 		return (NULL);
 	if (idx == 0)
