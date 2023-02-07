@@ -6,7 +6,7 @@
  * @n: pointer to number.
  * @index: index of bit.
  *
- * Return: 1 (success) or -1 (failure).
+ * Return: 1 (success), or -1 (failure).
 */
 int set_bit(unsigned long int *n, unsigned int index)
 {
