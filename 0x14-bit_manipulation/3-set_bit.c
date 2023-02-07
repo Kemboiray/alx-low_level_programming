@@ -23,6 +23,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 	arr[index + 1] = 0;
 
 	num = binary_to_uint(arr);
+	free(arr);
 	*n |= num;
 
 	return (1);
