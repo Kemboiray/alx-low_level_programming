@@ -29,5 +29,6 @@ unsigned int binary_to_uint(const char *b)
 		sum += ((unsigned int) (b[i] - 48)) * mul[i];
 	}
 
+	free(mul);
 	return (sum);
 }

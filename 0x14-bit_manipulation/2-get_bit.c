@@ -10,11 +10,11 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int tmp1 = n;
-	unsigned int size, tmp2, ret, *arr;
+	unsigned int size, tmp2, ret, *arr, idx = index;
 
 	size = bit_count(n);
 
-	if (index >= size)
+	if (idx >= size)
 		return (-1);
 
 	arr = malloc(size * sizeof(*arr));
@@ -29,7 +29,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		tmp2--;
 	}
 
-	ret = arr[size - 1 - index];
+	ret = arr[size - 1 - idx];
 	free(arr);
 	return (ret);
 }
