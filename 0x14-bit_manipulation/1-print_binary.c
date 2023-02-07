@@ -8,7 +8,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int size = 0, tmp1 = n, tmp2, i, *arr;
+	int size = 0, tmp1 = n, tmp2, i, arr[20];
 
 	if (n == 0)
 	{
@@ -20,9 +20,6 @@ void print_binary(unsigned long int n)
 		n >>= 1;
 		size++;
 	}
-	arr = malloc(size * sizeof(int));
-	if (arr == NULL)
-		exit(EXIT_FAILURE);
 	tmp2 = size;
 	while (size > 0)
 	{
@@ -32,5 +29,4 @@ void print_binary(unsigned long int n)
 	}
 	for (i = 0; i < tmp2; i++)
 		printf("%d", arr[i]);
-	free(arr);
 }
