@@ -12,6 +12,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	ssize_t wrt;
+	size_t len;
 	int fd;
 
 	if (filename == NULL)
@@ -27,7 +28,11 @@ int create_file(const char *filename, char *text_content)
 		return (1);
 	}
 
-	wrt = write(fd, text_content, (size_t)(strlen(text_content) + 1));
+	for (len = 0; text_content[len]; len++)
+		;
+	len++;
+
+	wrt = write(fd, text_content, len);
 	if (wrt == -1)
 		return (-1);
 
