@@ -10,6 +10,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#define BUFFER_SIZE 1024
+#define ERROR_EXIT_CODE 97
+#define ERROR_EXIT_CODE_READ 98
+#define ERROR_EXIT_CODE_WRITE 99
+#define ERROR_EXIT_CODE_CLOSE 100
+
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int n);
