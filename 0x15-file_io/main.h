@@ -11,10 +11,9 @@
 #include <unistd.h>
 
 #define BUFFER_SIZE 1024
-#define ERROR_EXIT_CODE 97
-#define ERROR_EXIT_CODE_READ 98
-#define ERROR_EXIT_CODE_WRITE 99
-#define ERROR_EXIT_CODE_CLOSE 100
+#define READ_ERR "Error: Can't read from file %s\n"
+#define WRITE_ERR "Error: Can't write to %s\n"
+#define CLOSE_ERR "Error: Can't close fd %d\n"
 
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);

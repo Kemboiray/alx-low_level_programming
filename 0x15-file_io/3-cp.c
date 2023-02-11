@@ -10,56 +10,42 @@ int main(int argc, char *argv[])
 {
 	int fd_from, fd_to, bytes_read, bytes_written, check = 1;
 	char buffer[BUFFER_SIZE];
-	mode_t perms = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
+	/* Check if the number of arguments passed is correct */
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
-		exit(ERROR_EXIT_CODE);
-	}
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]), exit(97);
 
+	/* Open the source file for reading */
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(ERROR_EXIT_CODE_READ);
-	}
+		dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
 
-	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, perms);
+	/* Open the destination file for writing */
+	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, permissions);
 	if (fd_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(ERROR_EXIT_CODE_WRITE);
-	}
+		dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
 
+	/* Read data from the source file and write to the destination file */
 	while (check > 0)
 	{
 		bytes_read = read(fd_from, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(ERROR_EXIT_CODE_READ);
-		}
+			dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
 		check = bytes_read;
+
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written != bytes_read)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(ERROR_EXIT_CODE_WRITE);
-		}
+			dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
 	}
 
+	/* Close the source file */
 	if (close(fd_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-		exit(ERROR_EXIT_CODE_CLOSE);
-	}
+		dprintf(STDERR_FILENO, CLOSE_ERR, fd_from), exit(100);
 
+	/* Close the destination file */
 	if (close(fd_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-		exit(ERROR_EXIT_CODE_CLOSE);
-	}
+		dprintf(STDERR_FILENO, CLOSE_ERR, fd_to), exit(100);
 
 	return (0);
 }
