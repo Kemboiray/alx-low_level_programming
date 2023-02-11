@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, bytes_read, bytes_written;
+	int fd_from, fd_to, bytes_read, bytes_written, check = 1;
 	char buffer[BUFFER_SIZE];
 	mode_t perms = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
@@ -32,8 +32,15 @@ int main(int argc, char *argv[])
 		exit(ERROR_EXIT_CODE_WRITE);
 	}
 
-	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	while (check > 0)
 	{
+		bytes_read = read(fd_from, buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(ERROR_EXIT_CODE_READ);
+		}
+		check = bytes_read;
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written != bytes_read)
 		{
