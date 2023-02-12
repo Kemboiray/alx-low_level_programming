@@ -11,6 +11,7 @@
 #include <unistd.h>
 
 #define BUFFER_SIZE 1024
+#define USAGE "Usage: %s file_from file_to\n"
 #define READ_ERR "Error: Can't read from file %s\n"
 #define WRITE_ERR "Error: Can't write to %s\n"
 #define CLOSE_ERR "Error: Can't close fd %d\n"
