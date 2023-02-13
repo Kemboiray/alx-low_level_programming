@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	char buf[BUFFER_SIZE];
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, USAGE, argv[0]), exit(97);
+		dprintf(STDERR_FILENO, USAGE, "cp"), exit(97);
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
