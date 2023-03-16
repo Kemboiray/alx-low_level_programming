@@ -1,6 +1,5 @@
 #include "lists.h"
-
-dlistint_t *create_node(const int n);
+#include "create_node.c"
 
 /**
  * add_dnodeint - adds a new node at the beginning of a `dlistint_t` list
@@ -26,27 +25,6 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	new_node->next = *head;
 	(*head)->prev = new_node;
 	*head = new_node;
-
-	return (new_node);
-}
-
-/**
- * create_node - create a `dlistint_t` node
- *
- * @n: value to assign to member `n` of the new node
- *
- * Return: node (success), or NULL (failure).
- */
-dlistint_t *create_node(const int n)
-{
-	dlistint_t *new_node = malloc(sizeof(dlistint_t));
-
-	if (!new_node)
-		return (NULL);
-
-	new_node->n = (int)n;
-	new_node->prev = NULL;
-	new_node->next = NULL;
 
 	return (new_node);
 }
