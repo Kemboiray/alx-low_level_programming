@@ -1,6 +1,6 @@
 #include "lists.h"
-#include "create_node.c"
 
+dlistint_t *create_node3(const int n);
 /**
  * add_dnodeint_end - adds a new node at the end of a `dlistint_t` list
  * @head: address of pointer to the head node
@@ -12,7 +12,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	dlistint_t *end_node, *temp;
 
-	end_node = create_node(n);
+	end_node = create_node3(n);
 	if (!end_node)
 		return (NULL);
 
@@ -28,4 +28,25 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 		*head = end_node;
 
 	return (end_node);
+}
+
+/**
+ * create_node3 - create a `dlistint_t` node
+ *
+ * @n: value to assign to member `n` of the new node
+ *
+ * Return: node (success), or NULL (failure).
+ */
+dlistint_t *create_node3(const int n)
+{
+	dlistint_t *new_node = malloc(sizeof(dlistint_t));
+
+	if (!new_node)
+		return (NULL);
+
+	new_node->n = (int)n;
+	new_node->prev = NULL;
+	new_node->next = NULL;
+
+	return (new_node);
 }
