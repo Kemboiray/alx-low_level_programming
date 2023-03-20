@@ -1,5 +1,4 @@
 tests/
 .vscode/
-*.sh
 *main.c
 Requiescat
