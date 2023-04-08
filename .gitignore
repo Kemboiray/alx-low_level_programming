@@ -1,4 +1,14 @@
-tests/
-.vscode/
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# Ignore test files
 *main.c
-Requiescat
+
+# Ignore hidden files
+.*
