@@ -6,8 +6,5 @@ NAME = school
 all: $(OBJ)
 	$(CC) -o $(NAME) $(OBJ)
 
-school.o: m.h
-	$(CC) -c school.c
-
 clean:
 	rm -f *.o school
