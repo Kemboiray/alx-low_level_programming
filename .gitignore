@@ -2,3 +2,5 @@
 0x1A-hash_tables/*main.c
 0x18-dynamic_libraries/files/*main.c
 0x1A-hash_tables/.vscode/
+.gitignore
+0x1E-search_algorithms/*main.c
