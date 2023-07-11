@@ -4,3 +4,5 @@
 0x1A-hash_tables/.vscode/
 .gitignore
 0x1E-search_algorithms/*main.c
+0-linear
+1-binary
