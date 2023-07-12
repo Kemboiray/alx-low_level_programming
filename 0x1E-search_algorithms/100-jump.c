@@ -2,6 +2,30 @@
 #include <math.h>
 
 /**
+ * my_linear_search - search for a value in an array of integer
+ * @array: pointer to array of integers
+ * @size: size of @array
+ * @value: value to search for
+ * @offset: offset
+ *
+ * Return: first matching index, or -1 (@array is NULL or match not found)
+ */
+int my_linear_search(int *array, size_t size, int value, size_t offset)
+{
+	size_t i;
+
+	if (array)
+		for (i = 0; i < size; i++)
+		{
+			printf("Value checked array[%lu] = [%d]\n", i + offset, array[i]);
+			if (array[i] == value)
+				return (i + offset);
+		}
+
+	return (-1);
+}
+
+/**
  * jump_search - search for a value in an array of integers
  * @array: pointer to array of integers
  * @size: size of @array
@@ -11,40 +35,31 @@
  */
 int jump_search(int *array, size_t size, int value)
 {
-	size_t prev = 0, root, step;
+	size_t step = 0, jump;
 
 	if (array == NULL || size == 0)
 		return (-1);
-	root = (size_t)floor(sqrt(size));
-	step = root;
+	jump = (size_t)floor(sqrt(size));
 
-	while (array[(step < size ? step : size) - 1] < value)
+	while (step <= size - 1)
 	{
-		printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
-		prev = step;
-		step += root;
-		if (prev >= size)
+		if (array[step] < value)
+			printf("Value checked array[%lu] = [%d]\n", step, array[step]);
+		if (step == 0 && array[step] > value)
 			return (-1);
-	}
-/*
-*	printf("Value found between indexes [%lu] and [%lu]\n",
-*			prev - root, step - root);
-*/
-	if (array[prev] <= value)
-		printf("Value found between indexes [%lu] and [%lu]\n",
-				(prev < prev - root ? prev : prev - root),
-				prev < prev - root ? prev + root : prev);
 
-	while (array[prev] < value)
-	{
-		printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
-		prev++;
-		if (prev == (step < size ? step : size))
-			return (-1);
+		if (array[step] >= value)
+		{
+			printf("Value found between indexes [%lu] and [%lu]\n",
+					step - jump, step);
+			return (my_linear_search(&array[step - jump], jump + 1,
+						value, step - jump));
+		}
+
+		step += jump;
 	}
 
-	printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
-	if (array[prev] == value)
-		return (prev);
+	printf("Value found between indexes [%lu] and [%lu]\n",
+			step - jump, step);
 	return (-1);
 }
